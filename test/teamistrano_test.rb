@@ -5,7 +5,8 @@ class TeamistranoTest < Minitest::Test
     refute_nil ::Teamistrano::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
-  end
+  # def test_it_does_something_useful
+  #   assert false
+  # end
+  
 end
