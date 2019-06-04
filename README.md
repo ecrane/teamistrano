@@ -34,7 +34,7 @@ set :teamistrano, {
 Add a reference in the Capfile:
 
 ```
-require 'teamistrano'
+require 'teamistrano/notifier'
 ```
 
 Stand up, turn around three times and then do your 'cap deploy'.

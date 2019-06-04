@@ -3,6 +3,8 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+load File.expand_path( "../tasks/teamistrano.rake", __FILE__ )
+
 module Teamistrano
   class Notifier
     
