@@ -1,5 +1,6 @@
 require "teamistrano/version"
 
+load File.expand_path("../teamistrano/tasks/teamistrano.rake", __FILE__)
+
 module Teamistrano
-  # Your code goes here...
 end
