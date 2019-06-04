@@ -1,7 +1,6 @@
 # Teamistrano
 
-The Teamistrano gem can be used to post deployment notices in Microsoft Teams.
-
+The Teamistrano gem can be used to post Capistrano deployment notices in Microsoft Teams.
 
 ## Installation
 
@@ -19,9 +18,27 @@ Or install it yourself as:
 
     $ gem install teamistrano
 
+
 ## Usage
 
-TODO: Write usage instructions here
+In Teams, add an "Incoming Webhook" connector in the channel where you want to see deployment notices.  Copy the webhook URL that is created when you add the connector.
+
+In your config/deploy.rb file add the webhook URL like this:
+
+```
+set :teamistrano, {
+  webhook: 'https://outlook.office.com/webhook/.....'
+}
+```
+
+Add a reference in the Capfile:
+
+```
+require 'teamistrano'
+```
+
+Stand up, turn around three times and then do your 'cap deploy'.
+
 
 ## Development
 
@@ -39,4 +56,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Teamistrano project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/teamistrano/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Teamistrano project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ecrane/teamistrano/blob/master/CODE_OF_CONDUCT.md).
