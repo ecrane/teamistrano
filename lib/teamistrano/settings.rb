@@ -14,6 +14,16 @@ module Teamistrano
       return @config[ :webhook ]
     end
 
+    # Should we use curl to post the message to teams?
+    def use_curl?
+      o = @config[ :curl ]
+      if o
+        return true
+      else
+        return false
+      end
+    end
+
     # Get the local user name.
     def get_local_user
       return ENV['USER'] || ENV['USERNAME']

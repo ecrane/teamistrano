@@ -67,9 +67,18 @@ module Teamistrano
         'themeColor' => @color
       }.to_json
     end
-    
+
     # Post to Teams.
     def post
+      if @settings.use_curl?
+        post_with_curl
+      else
+        post_with_ruby
+      end
+    end
+    
+    # Post to Teams.
+    def post_with_ruby
       uri = URI.parse( @settings.webhook_url )
       request = Net::HTTP::Post.new( uri.path )
       request.content_type = 'application/json'
@@ -79,6 +88,12 @@ module Teamistrano
 
       # Send the payload to the endpoint.
       n.start { |http| http.request( request ) }
+    end
+
+    # Post to Teams with curl command.
+    def post_with_curl
+      url = @settings.webhook_url
+      `curl -is -X POST -H "Content-Type:application/json" -d '#{get_body}' '#{url}'`
     end
     
   end
